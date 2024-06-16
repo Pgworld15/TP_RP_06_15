@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assign1_todoList.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1 class="head">To-Do List</h1>  
+    <section>
+    <div class="container">
+       
+        <div class="to-do">
+           
+            <input type="text" id="inputBox" placeholder="Add your task">
+            <br><br>
+            <button onclick="addTask()" id="btn">Add</button> 
+        </div>
+        <div>
+            <ol id="list-container">
+                  
+            </ol>
+        </div>
+        
+    </div>
+</section>
+    <script>
+        const input_box = document.getElementById("inputBox");
+        const list = document.getElementById("list-container");
+
+        function addTask(){
+            if(input_box.value ===''){
+                alert("Please enter the task");
+            }
+            else{
+                const li = document.createElement("li");
+                li.innerText = input_box.value;
+                list.appendChild(li);
+
+                const complete_btn=document.createElement("button");
+                list.appendChild(complete_btn);
+                complete_btn.innerHTML = "Complete";
+                
+                
+                complete_btn.onclick = function(){
+                    li.style.textDecoration = "line-through";
+                };
+
+               /*  btn.innerHTML +="<button onclick='markComplete()'>complete</button>";
+                list.append(btn); */
+            }
+
+            input_box.value = "";
+        }
+
+        
+        
+
+
+        
+
+    </script>
+</body>
+</html>
